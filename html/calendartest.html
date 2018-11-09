@@ -1,0 +1,176 @@
+<!doctype html>
+
+<html="en">
+    <head>
+        <title>Calendar</title>
+        <link type="text/css" rel="stylesheet" href="../css/calendartest.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+<!--
+    <script type="text/javascript">
+      $(document).ready(function(){
+      var complexData = [
+        {'dayindex': 1},
+        {'dayindex': 2},
+        {'dayindex': 3},
+        {'dayindex': 4},
+        {'dayindex': 5},
+        {'dayindex': 6},
+        {'dayindex': 7},
+        {'dayindex': 8},
+        {'dayindex': 9},
+        {'dayindex': 10},
+        {'dayindex': 11},
+        {'dayindex': 12},
+        {'dayindex': 13},
+        {'dayindex': 14},
+        {'dayindex': 15},
+        {'dayindex': 16},
+        {'dayindex': 17},
+        {'dayindex': 18},
+        {'dayindex': 19},
+        {'dayindex': 20},
+        {'dayindex': 21},
+        {'dayindex': 22},
+        {'dayindex': 23},
+        {'dayindex': 24},
+        {'dayindex': 25},
+        {'dayindex': 26},
+        {'dayindex': 27},
+        {'dayindex': 28},
+        {'dayindex': 29},
+        {'dayindex': 30},
+      ]
+      var source = $("#entry-template").html();
+      var template = Handlebars.compile(source);
+      var parentDiv = $("#caldays");
+
+      for (var i = 0; i<complexData.length; i++) {
+        var curData = complexData[i];
+        var curHtml = template(curData);
+        parentDiv.append(curHtml);
+      }
+
+      });
+      </script>
+ -->
+    <script id="entry-template" type="text/x-handlebars=template">
+    <div class="days" id="day{{dayindex}}" data-toggle="modal" data-target="#dayModal{{dayindex}}">
+        <a href="#">
+        <p>{{dayindex}}</p>
+        </a>
+    </div>
+          <div class="modal fade" id="dayModal{{dayindex}}" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                <div class="plan">
+                  <form action="/action_page.php">
+                    <div class="form-group">
+                      <label for="title">Title:</label>
+                      <input type="title" class="form-control" id="title" placeholder="" name="title">
+                    </div>
+                    <div class="form-group">
+                      <label for="Time">Time:</label>
+                      <input type="time" class="form-control" id="time" placeholder="" name="time">
+                    </div>
+                    <div class="form-group">
+                      <label for="Friends">Friends:</label>
+                      <input type="friends" class="form-control" id="friends" placeholder="" name="friends">
+                    </div>
+                    <div class="form-group">
+                      <label for="Reminder">Reminder:</label>
+                      <input type="reminder" class="form-control" id="reminder" placeholder="" name="reminder">
+                    </div>
+                    <div class="form-group">
+                      <label for="Routine">Routine:</label>
+                      <input type="routine" class="form-control" id="routine" placeholder="" name="routine">
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Save Event</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+    </script>
+
+
+    <body>
+      <div class="calmonth" >
+        <h3> November </h3>
+      </div>
+
+      <div class="caldays" id="calen">
+        <!-- we will inject templated project HTML code into here -->
+        <!-- <div class="days" id="day1">
+        <p>1</p> -->
+      </div>
+
+      <!-- <div class="days" id="day{{dayindex}}" data-toggle="modal" data-target="#{}dayModal{{dayindex}}">
+          <a href="#">
+           <p>{{dayindex}}</p>
+            <div class="modal fade" id="dayModal{{dayindex}}" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </a>
+      </div> -->
+
+      <!-- <div class="caldays">
+        <div class="days" id="day1">1</div>
+        <div class="days" id="day2">2</div>
+        <div class="days" id="day3">3</div>
+        <div class="days" id="day4">4</div>
+        <div class="days" id="day5">5</div>
+        <div class="days" id="day6">6</div>
+        <div class="days" id="day7">7</div>
+        <div class="days" id="day8">8</div>
+        <div class="days" id="day9">9</div>
+        <div class="days" id="day10">10</div>
+        <div class="days" id="day11">11</div>
+        <div class="days" id="day12">12</div>
+        <div class="days" id="day13">13</div>
+        <div class="days" id="day14">14</div>
+        <div class="days" id="day15">15</div>
+        <div class="days" id="day16">16</div>
+        <div class="days" id="day17">17</div>
+        <div class="days" id="day18">18</div>
+        <div class="days" id="day19">19</div>
+        <div class="days" id="day20">20</div>
+        <div class="days" id="day21">21</div>
+        <div class="days" id="day22">22</div>
+        <div class="days" id="day23">23</div>
+        <div class="days" id="day24">24</div>
+        <div class="days" id="day25">25</div>
+        <div class="days" id="day26">26</div>
+        <div class="days" id="day27">27</div>
+        <div class="days" id="day28">28</div>
+        <div class="days" id="day29">29</div>
+        <div class="days" id="day30">30</div>
+      </div> -->
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script src="../js/bootstrap.min.js"></script>
+      <script src="../js/handlebars-v4.0.11.js"></script>
+      <script src="../js/calendartest.js"></script>
+    </body>
+</html>

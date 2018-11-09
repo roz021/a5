@@ -1,0 +1,37 @@
+/* #calendar-container{
+    padding: 10px;
+    width: 210px;
+    height: 240px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: Arial;
+    background-image: linear-gradient(#fff, #d3d3d3);
+}
+
+#calendar-container>div{
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+#calendar-month-year{
+    margin: 5px;
+}
+
+#calendar-dates>table>tr>td{
+    padding: 5px;
+} */
+.caldays {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  background-color: #E6E6E6;
+  padding: 5px;
+}
+.days {
+  background-color: #FFFFFF;
+  border: 5px solid #E6E6E6;
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+}
