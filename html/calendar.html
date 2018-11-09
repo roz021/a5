@@ -9,7 +9,29 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/handlebars-v4.0.11.js"></script>
+        <script src="../js/calendartest.js"></script>
     </head>
+
+<script type="text/javascript">
+function store(){
+    var inputTitle = document.getElementById("title");
+    localStorage.setItem("title", inputTitle.value);
+    
+    var inputTime = document.getElementById("time");
+    localStorage.setItem("time", inputTime.value);
+    
+    var inputFriends = document.getElementById("friends");
+    localStorage.setItem("friends", inputFriends.value);
+    
+    var inputReminder = document.getElementById("reminder");
+    localStorage.setItem("reminder", inputReminder.value);
+    }
+    
+</script>    
 
     <body>
         <footer>
@@ -62,7 +84,7 @@
                     </a>
                 </div>
 
-                <script id="entry-template" type="text/x-handlebars=template">
+                <script id="entry-template" type="text/x-handlebars-template">
                 <div class="days" id="day{{dayindex}}" data-toggle="modal" data-target="#dayModal{{dayindex}}">
                     <a href="#">
                     <p>{{dayindex}}</p>
@@ -76,10 +98,10 @@
                             </div>
                             <div class="modal-body">
                             <div class="plan">
-                              <form action="/action_page.php">
+                              <form>
                                 <div class="form-group">
                                   <label for="title">Title:</label>
-                                  <input type="title" class="form-control" id="title" placeholder="" name="title">
+                                  <input type="text" class="form-control" id="title" placeholder="" name="title">
                                 </div>
                                 <div class="form-group">
                                   <label for="Time">Time:</label>
@@ -87,20 +109,16 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="Friends">Friends:</label>
-                                  <input type="friends" class="form-control" id="friends" placeholder="" name="friends">
+                                  <input type="text" class="form-control" id="friends" placeholder="" name="friends">
                                 </div>
                                 <div class="form-group">
                                   <label for="Reminder">Reminder:</label>
-                                  <input type="reminder" class="form-control" id="reminder" placeholder="" name="reminder">
-                                </div>
-                                <div class="form-group">
-                                  <label for="Routine">Routine:</label>
-                                  <input type="routine" class="form-control" id="routine" placeholder="" name="routine">
+                                  <input type="text" class="form-control" id="reminder" placeholder="" name="reminder">
                                 </div>
                               </div>
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Save Event</button>
+                              <button onclick="store()" type="button" class="btn btn-default" data-dismiss="modal">Save Event</button>
                             </div>
                           </div>
                         </div>
@@ -118,9 +136,5 @@
                   </div>
 
 
-                  <script src="https://code.jquery.com/jquery.js"></script>
-                  <script src="../js/bootstrap.min.js"></script>
-                  <script src="../js/handlebars-v4.0.11.js"></script>
-                  <script src="../js/calendartest.js"></script>
     </body>
 </html>
