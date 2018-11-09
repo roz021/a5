@@ -21,7 +21,7 @@ var sfriends = [
     {'person' : 'bey', 'name' : 'Beyonce Knowles', 'pic' : 'Beyonce', 'bio' : 'blah', 'profile' : 'bey' },
     {'person' : 'frank' ,'name' : 'Frank Ocean', 'pic' : 'FOcean', 'bio' : 'blah', 'profile' : 'fo' },
     {'person' : 'klay', 'name' : 'Klay Thompson', 'pic' : 'KThompson' , 'bio' : 'blah', 'profile' : 'kt' },
-    {'person' : 'lilp', 'name' : 'Lil Pump', 'pic' : 'LilPump' , 'bio' : 'blah', 'profile' : 'lp'  },
+   // {'person' : 'lilp', 'name' : 'Lil Pump', 'pic' : 'LilPump' , 'bio' : 'blah', 'profile' : 'lp'  },
 ]
 
 var source = $("#profs").html();
