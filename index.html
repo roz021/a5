@@ -38,9 +38,10 @@
             }
             */
 
-            $("button").click(function(){
+            $(".likeb").click(function(){
                 $(this).toggleClass("liked");
             });
+
         });
 
 
@@ -150,10 +151,8 @@
                    <p>I'm gonna go to RIMAC at around 8PM. Probably hitting up taco stand after, 
                        anyone wanna come?
                    </p>
-                   <button id="likeb">
-                       <a href="index.html">
+                   <button class="likeb">
                    <img id="like" src="images/heart.png" alt="like">
-                   </a>
                    </button>
                    <button id="comm">
                    <img id="comment" src="images/comment.png" alt="comment">
@@ -167,7 +166,7 @@
                     <video width="300" height="350" controls>
                         <source src="videos/roll.mp4" type="video/mp4">
                     </video>
-                    <button id="likeb">
+                    <button class="likeb">
                     <img id="like" src="images/heart.png" alt="like">
                     </button>
                     <button id="comm">
@@ -180,12 +179,11 @@
                     <h5>Arnold Schwarzenegger</h5>
                     <p>Thought I looked cute, might delete l8er</p>
                     <img src="images/arnolds.png" class="arn2" alt="arn">
-                    <button id="likeb">
+                    <button class="likeb">
                     <img id="like" src="images/heart.png" alt="like">
                     </button>
                     <button id="comm">
                     <img id="comment" src="images/comment.png" alt="comment">
-                        </a>
                         </button>
                 </div>
                 </div>
@@ -195,14 +193,12 @@
                 <img src="images/profpic.jpg" class="roy" alt="roy">
                 <h5>Roy Zhang</h5>
             <p>{{poststring}}</p>
-                <a href="#">
-                    <button id="likeb">
-                    <img id="like" id="like" src="images/heart.png" alt="like">
+                    <button class="likeb">
+                    <img id="like" src="images/heart.png" alt="like">
                     </button>
                     <button id="comm">
                 <img id="comment" src="images/comment.png" alt="comment">
                 </button>
-            </a>
 
         </div>
     </script>

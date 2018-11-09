@@ -164,7 +164,7 @@ button img:visited{
     display: inline-block;
 }
 
-#newsfeed #likeb{
+#newsfeed .likeb{
     position: absolute;
     left: 25%;
 }
@@ -193,7 +193,7 @@ button img:visited{
     display: inline-block;
 }
 
-#result #likeb{
+#result .likeb{
     position: absolute;
     left: 25%;
 }
