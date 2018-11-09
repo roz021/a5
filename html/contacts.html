@@ -8,9 +8,39 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></</script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/handlebars-v4.0.11.js"></script>
         <title>Friends</title>
     </head>
 
+    <script type="text/javascript">
+    $(document).ready(function(){
+    var friends = [
+    {'person' : 'pguo', 'name' : 'Phillip Guo' , 'pic' : 'pguo', 'bio' : 'blah', 'profile' : 'pguo' },
+    {'person' : 'ed', 'name' : 'Edwin Fu', 'pic' : 'edwin' , 'bio' : 'blah', 'profile' : 'edw'  },
+    {'person' : 'arn', 'name' : 'Arnold S.', 'pic' : 'arnolds', 'bio' : 'blah' , 'profile' : 'arn'  },
+    {'person' : 'ty', 'name' : 'Tyler the Creator', 'pic' : 'TylerTC' , 'bio' : 'blah', 'profile' : 'ttc'}
+]
+var sfriends = [
+    {'person' : 'bey', 'name' : 'Beyonce Knowles', 'pic' : 'Beyonce', 'bio' : 'blah', 'profile' : 'bey' },
+    {'person' : 'frank' ,'name' : 'Frank Ocean', 'pic' : 'FOcean', 'bio' : 'blah', 'profile' : 'fo' },
+    {'person' : 'klay', 'name' : 'Klay Thompson', 'pic' : 'KThompson' , 'bio' : 'blah', 'profile' : 'kt' },
+    {'person' : 'lilp', 'name' : 'Lil Pump', 'pic' : 'LilPump' , 'bio' : 'blah', 'profile' : 'lp'  },
+]
+
+var source = $("#profs").html();
+var template = Handlebars.compile(source);
+var parentDiv = $("#friendsall");
+
+for (var i = 0; i < friends.length; i++){
+    var curData = friends[i];
+    var curHtml = template(curData);
+    console.log(curHtml);
+    parentDiv.append(curHtml);
+}
+    });
+    </script>
     <body>
         <div class="search">
                 <input type="text" placeholder="Search.." name="search">
@@ -98,7 +128,7 @@
                 -->
 
                 </div>
-              
+              <!--
                 <div class="suggestedbar">
                   <h3>Suggested</h3>
                   <input type="text" placeholder="search friend" required>
@@ -200,7 +230,7 @@
                       </a>
                     </div>
                </div>
-
+              -->
                <script id="prof-prev" type="text/x-handlebars-template">
              
                <div class="modal fade" id="{{person}}Modal">
@@ -225,7 +255,7 @@
                           </div>
       
                           <div class="modal-footer">
-                            <a href="{{profile}}.html">
+                            <a href="fake/{{profile}}.html">
                               <button type="button" class="btn btn-danger" id="buttonPost" data-dismiss="modal">
                                   More
                               </button>
@@ -242,7 +272,7 @@
                 <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"> -->
                     <input type="image" src="../images/{{pic}}.png" name="saveForm" class="btn btn-primary" 
                     id="picturePrev" data-toggle="modal" data-target="#{{person}}Modal" />
-                    <a href="{{profile}}.html">
+                    <a href="fake/{{profile}}.html">
                     <h6>{{name}}</h6>
                     </a>
               </div>
@@ -318,9 +348,8 @@
             </div> 
           -->
 
-          <script src="https://code.jquery.com/jquery.js"></script>
-          <script src="js/bootstrap.min.js"></script>
-          <script src="js/handlebars-v4.0.11.js"></script>
+       
+          <!--<script src="../js/contacts.js"></script>-->
             
     </body>
 </html>
