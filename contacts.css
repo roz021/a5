@@ -1,0 +1,29 @@
+.friendsall{
+  width:100%;
+  height:430px;
+  overflow:scroll;
+  background-color: #E6E6E6;
+  white-space: nowrap;
+  padding: 10px;
+}
+.friends{
+  display:inline-block;
+  height:400px;
+  background-color: #FFFFFF;
+  border:5px solid #FFFFFF;;
+  text-align:center;
+  padding:10px;
+}
+.sfriendsall {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #E6E6E6;
+  padding: 10px;
+}
+.sfriends {
+  background-color: #FFFFFF;
+  border: 5px solid #E6E6E6;
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+}
