@@ -5,12 +5,73 @@
         <link href="../css/contacts.css" rel="stylesheet" />
         <link href="../css/home.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></</script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/handlebars-v4.0.11.js"></script>
         <title>Friends</title>
     </head>
 
+    <script type="text/javascript">
+    $(document).ready(function(){
+    var friends = [
+    {'person' : 'pguo', 'name' : 'Phillip Guo' , 'pic' : 'pguo', 'bio' : 'blah', 'profile' : 'pguo' },
+    {'person' : 'ed', 'name' : 'Edwin Fu', 'pic' : 'edwin' , 'bio' : 'blah', 'profile' : 'edw'  },
+    {'person' : 'arn', 'name' : 'Arnold S.', 'pic' : 'arnolds', 'bio' : 'blah' , 'profile' : 'arn'  },
+    {'person' : 'ty', 'name' : 'Tyler the Creator', 'pic' : 'TylerTC' , 'bio' : 'blah', 'profile' : 'ttc'}
+]
+var sfriends = [
+    {'person' : 'bey', 'name' : 'Beyonce Knowles', 'pic' : 'Beyonce', 'bio' : 'blah', 'profile' : 'bey' },
+    {'person' : 'frank' ,'name' : 'Frank Ocean', 'pic' : 'FOcean', 'bio' : 'blah', 'profile' : 'fo' },
+    {'person' : 'klay', 'name' : 'Klay Thompson', 'pic' : 'KThompson' , 'bio' : 'blah', 'profile' : 'kt' },
+]
+
+var source = $("#profs").html();
+var template = Handlebars.compile(source);
+var parentDiv = $("#friendsall");
+
+for (var i = 0; i < friends.length; i++){
+    var curData = friends[i];
+    var curHtml = template(curData);
+    console.log(curHtml);
+    parentDiv.append(curHtml);
+}
+
+var sourcesug = $("#profs").html();
+var templatesug = Handlebars.compile(sourcesug);
+var parentsugDiv = $("#sfriendsall");
+
+for (var i =0; i < sfriends.length; i++){
+  var curData = sfriends[i];
+  var curHtml = templatesug(curData);
+  console.log(curHtml);
+  parentsugDiv.append(curHtml);
+}
+
+var sourceprev = $("#prof-prev").html();
+var templateprev = Handlebars.compile(sourceprev);
+var parentprevDiv = $("#friendsall");
+
+for (var i =0; i < friends.length; i++){
+  var curData = friends[i];
+  var curHtml = templateprev(curData);
+  console.log(curHtml);
+  parentprevDiv.append(curHtml);
+}
+  var sourcePrevSug = $("#prof-prev").html();
+  var templateSugPrev = Handlebars.compile(sourcePrevSug);
+  var parentSugDiv = $("#sfriendsall");
+
+for (var i =0; i < sfriends.length; i++){
+  var curData = sfriends[i];
+  var curHtml = templateSugPrev(curData);
+  console.log(curHtml);
+  parentSugDiv.append(curHtml);
+}
+    });
+    </script>
     <body>
         <div class="search">
                 <input type="text" placeholder="Search.." name="search">
@@ -105,6 +166,10 @@
                   <button type="filter">filter</button>
                 </div>
 
+                <div id="sfriendsall">
+
+                </div>
+<!--
                 <div class="sfriendsall">
                     <div class="sfriends" id="sfriend1">
                       <a href="#">
@@ -200,7 +265,7 @@
                       </a>
                     </div>
                </div>
-
+              -->
                <script id="prof-prev" type="text/x-handlebars-template">
              
                <div class="modal fade" id="{{person}}Modal">
@@ -225,8 +290,8 @@
                           </div>
       
                           <div class="modal-footer">
-                            <a href="{{profile}}.html">
-                              <button type="button" class="btn btn-danger" id="buttonPost" data-dismiss="modal">
+                            <a href="fake/{{profile}}.html">
+                              <button type="button" class="btn btn-danger" id="buttonPost">
                                   More
                               </button>
                               </a>
@@ -242,7 +307,7 @@
                 <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"> -->
                     <input type="image" src="../images/{{pic}}.png" name="saveForm" class="btn btn-primary" 
                     id="picturePrev" data-toggle="modal" data-target="#{{person}}Modal" />
-                    <a href="{{profile}}.html">
+                    <a href="fake/{{profile}}.html">
                     <h6>{{name}}</h6>
                     </a>
               </div>
@@ -318,9 +383,8 @@
             </div> 
           -->
 
-          <script src="https://code.jquery.com/jquery.js"></script>
-          <script src="js/bootstrap.min.js"></script>
-          <script src="js/handlebars-v4.0.11.js"></script>
+       
+          <!--<script src="../js/contacts.js"></script>-->
             
     </body>
 </html>

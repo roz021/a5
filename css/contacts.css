@@ -1,11 +1,12 @@
-.friendsall{
+#friendsall{
   width:100%;
-  height:10%;
+  height:;
   overflow:scroll;
   background-color: #E6E6E6;
   white-space: nowrap;
   padding: 10px;
 }
+
 .friends{
   display:inline-block;
   height:400px;
@@ -14,6 +15,12 @@
   text-align:center;
   padding:10px;
 }
+
+#friendsall input{
+  width: 250px;
+  height: 250px;
+}
+/*
 .sfriendsall {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -27,3 +34,4 @@
   font-size: 30px;
   text-align: center;
 }
+*/
