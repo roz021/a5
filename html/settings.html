@@ -4,39 +4,42 @@
     <head>
         <title>Settings</title>
         <link href="../css/home.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
     <body>
         <footer>
-            
+
                     <a href="../index.html">
                         <img src="../images/home.png" alt="home" >
                     </a>
-            
-                
-                
+
+
+
                     <a href="workout.html">
                         <img src="../images/workout.png" alt="workout" >
                     </a>
-                
-        
-                
+
+
+
                     <a href="contacts.html">
                         <img src="../images/friends.png" alt="friends">
                     </a>
-               
-        
-                
+
+
+
                     <a href="calendar.html">
                         <img src="../images/calendar.png" alt="calendar" >
                     </a>
-                
-        
-               
+
+
+
                     <a href="settings.html">
                         <img src="../images/settings.png" alt="settings">
                     </a>
-                
+
             </footer>
 
             <div id="messages">
@@ -57,14 +60,28 @@
             </a>
         </div>
 
-        <div class="settings" id="help">
+        <div class="container">
+          <h2>Settings</h2>
+          <div class="panel-group">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" href="#collapse1">Help</a>
+                </h4>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body">If you need help please contact us at fitfam@gmail.com</div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="settings" id="help">
             <a href="help.html">
                 <h1>Help | Support</h1>
             </a>
-        </div>
-        
+        </div> -->
+
         <div class="settings" id="logout">
-            <a href="blank.html">
+            <a href="login.html">
                 <h1>Logout</h1>
             </a>
         </div>
