@@ -76,9 +76,9 @@ for (var i =0; i < sfriends.length; i++){
     });
     </script>
     <body>
-        <div class="search">
+        <!-- <div class="search">
                 <input type="text" placeholder="Search.." name="search">
-    </div>
+    </div> -->
     <footer>
 
               <a href="../index.html">
@@ -138,7 +138,7 @@ for (var i =0; i < sfriends.length; i++){
 
                 <div id="friendsall">
 <!--
-                
+
                   <div class="friends" id="friend2">
                     <a href="#">
                       <img src="../images/edwin.jpg" alt="Profile Photo" style="width:250px;height:300px">
@@ -162,7 +162,7 @@ for (var i =0; i < sfriends.length; i++){
                 -->
 
                 </div>
-              
+
                 <div class="suggestedbar">
                   <h3>Suggested</h3>
                  <!-- <input type="text" placeholder="search friend" required>
@@ -270,17 +270,17 @@ for (var i =0; i < sfriends.length; i++){
                </div>
               -->
                <script id="prof-prev" type="text/x-handlebars-template">
-             
+
                <div class="modal fade" id="{{person}}Modal">
                   <div class="modal-dialog">
                       <div class="modal-content">
-      
+
                           <div class="modal-header">
                               <h5 class="modal-title">{{name}}</h5>
                               <button type="button" class="close" data-dismiss="modal">&times;
                               </button>
                           </div>
-                          
+
                           <div class="modal-body">
                             <img src="../images/{{pic}}.png">
                               <div class="form-group">
@@ -291,7 +291,7 @@ for (var i =0; i < sfriends.length; i++){
                               -->
                               </div>
                           </div>
-      
+
                           <div class="modal-footer">
                             <a href="fake/{{profile}}.html">
                               <button type="button" class="btn btn-danger" id="buttonPost">
@@ -306,14 +306,14 @@ for (var i =0; i < sfriends.length; i++){
                           </div>
                       </div>
                   </div>
-              </div> 
+              </div>
              </script>
 
 
              <script id="profs" type="text/x-handlebars-template">
               <div class="friends" id="{{name}}">
                 <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"> -->
-                    <input type="image" src="../images/{{pic}}.png" name="saveForm" class="btn btn-primary" 
+                    <input type="image" src="../images/{{pic}}.png" name="saveForm" class="btn btn-primary"
                     id="picturePrev" data-toggle="modal" data-target="#{{person}}Modal" />
                     <a href="fake/{{profile}}.html">
                     <h4>{{name}}</h4>
@@ -323,17 +323,17 @@ for (var i =0; i < sfriends.length; i++){
             </script>
 
 
-             
+
 <!--              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                   Share Something
               </button> -->
-             
+
                <!-- <div class="panel panel-default friends" id="{{friendNum}}" data-toggle="modal" data-target="#{{name}}Modal">
                 <div class="panel-body">
                   <a href="#">
                   <img src="{{image}}" alt="Profile Photo" style="width:250px;height:300px">
                   <h6> Philip Guo </h6>
-                  
+
 
                     <div class="modal fade" id="{{name}}Modal" role="dialog">
                       <div class="modal-dialog">
@@ -354,32 +354,32 @@ for (var i =0; i < sfriends.length; i++){
                     </a>
                 </div>
               </div>
-               
-               
-               
-         
-               
-               
+
+
+
+
+
+
                <div class="modal fade" id="myModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
-    
+
                         <div class="modal-header">
                             <h5 class="modal-title">{{name}}</h5>
                             <button type="button" class="close" data-dismiss="modal">&times;
                             </button>
                         </div>
-                        
+
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="examplePost"></label>
                                 <p id="examplePost">{{bio}}</p>
                                <input type="text" class="form-control" id="examplePost"
                                 aria-describedby="postHelp" placeholder="Share something">
-                            
+
                             </div>
                         </div>
-    
+
                         <div class="modal-footer">
                           <a href="{{profile}}.html">
                             <button type="button" class="btn btn-danger" id="buttonPost" data-dismiss="modal">
@@ -389,11 +389,11 @@ for (var i =0; i < sfriends.length; i++){
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
           -->
 
-       
+
           <!--<script src="../js/contacts.js"></script>-->
-            
+
     </body>
 </html>
