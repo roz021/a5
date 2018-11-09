@@ -1,6 +1,6 @@
 $(document).ready(function(){
 var complexData = [
-  {'dayindex': 'Ab'},
+  {'dayindex': 'Abs'},
   {'dayindex': 'Back'},
   {'dayindex': 'Bicep'},
   {'dayindex': 'Calf'},
