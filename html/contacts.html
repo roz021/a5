@@ -23,9 +23,12 @@
     {'person' : 'ty', 'name' : 'Tyler the Creator', 'pic' : 'TylerTC' , 'bio' : 'blah', 'profile' : 'ttc'}
 ]
 var sfriends = [
-    {'person' : 'bey', 'name' : 'Beyonce Knowles', 'pic' : 'Beyonce', 'bio' : 'blah', 'profile' : 'bey' },
-    {'person' : 'frank' ,'name' : 'Frank Ocean', 'pic' : 'FOcean', 'bio' : 'blah', 'profile' : 'fo' },
-    {'person' : 'klay', 'name' : 'Klay Thompson', 'pic' : 'KThompson' , 'bio' : 'blah', 'profile' : 'kt' },
+    {'person' : 'bey', 'name' : 'Beyonce Knowles', 'pic' : 'Beyonce', 'bio' : 'blah', 'profile' : 'bey',
+      'num' : '14 Mutual Interests' },
+    {'person' : 'frank' ,'name' : 'Frank Ocean', 'pic' : 'FOcean', 'bio' : 'blah', 'profile' : 'fo',
+       'num' : '10 Mutual Interests' },
+    {'person' : 'klay', 'name' : 'Klay Thompson', 'pic' : 'KThompson' , 'bio' : 'blah', 'profile' : 'kt' ,
+      'num' : '5 Mutual Interests'},
 ]
 
 var source = $("#profs").html();
@@ -115,11 +118,11 @@ for (var i =0; i < sfriends.length; i++){
                     </a>
                 </div>
 
-                <div id="logs">
+              <!--  <div id="logs">
                     <a href="logs.html">
                         <img src="../images/logs.png" alt="logs" style="width:25px;height:25px">
                     </a>
-                </div>
+                </div> -->
 
                 <div id="myProfile">
                     <a href="myProfile.html">
@@ -128,9 +131,9 @@ for (var i =0; i < sfriends.length; i++){
                 </div>
 
                 <div class="friendsbar">
-                  <h3>Fam</h3>
-                  <input type="text" placeholder="search fam" required>
-                  <button type="filter">filter</button>
+                  <h3>Your Fam!</h3>
+               <!--   <input type="text" placeholder="search fam" required>
+                  <button type="filter">filter</button> -->
                 </div>
 
                 <div id="friendsall">
@@ -162,8 +165,8 @@ for (var i =0; i < sfriends.length; i++){
               
                 <div class="suggestedbar">
                   <h3>Suggested</h3>
-                  <input type="text" placeholder="search friend" required>
-                  <button type="filter">filter</button>
+                 <!-- <input type="text" placeholder="search friend" required>
+                  <button type="filter">filter</button> -->
                 </div>
 
                 <div id="sfriendsall">
@@ -295,6 +298,11 @@ for (var i =0; i < sfriends.length; i++){
                                   More
                               </button>
                               </a>
+                            <a href="calendar.html">
+                              <button type="button" class="btn btn-danger" id="buttonPlan">
+                                Schedule
+                              </button>
+                            </a>
                           </div>
                       </div>
                   </div>
@@ -308,7 +316,8 @@ for (var i =0; i < sfriends.length; i++){
                     <input type="image" src="../images/{{pic}}.png" name="saveForm" class="btn btn-primary" 
                     id="picturePrev" data-toggle="modal" data-target="#{{person}}Modal" />
                     <a href="fake/{{profile}}.html">
-                    <h6>{{name}}</h6>
+                    <h4>{{name}}</h4>
+                    <h5>{{num}}</h5>
                     </a>
               </div>
             </script>

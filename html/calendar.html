@@ -4,6 +4,11 @@
     <head>
         <title>Calendar</title>
         <link href="../css/home.css" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="../css/calendartest.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     </head>
 
     <body>
@@ -57,16 +62,65 @@
                     </a>
                 </div>
 
-                <div id="calendar">
-                    <h1>[MONTH]</h1>
-                    <a href="scheduleEvent.html">
-                        <p>Grid of dates in month, clicking will schedule on that day</p>
-                        <h4>+</h4>
+                <script id="entry-template" type="text/x-handlebars=template">
+                <div class="days" id="day{{dayindex}}" data-toggle="modal" data-target="#dayModal{{dayindex}}">
+                    <a href="#">
+                    <p>{{dayindex}}</p>
                     </a>
                 </div>
+                      <div class="modal fade" id="dayModal{{dayindex}}" role="dialog">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                            <div class="plan">
+                              <form action="/action_page.php">
+                                <div class="form-group">
+                                  <label for="title">Title:</label>
+                                  <input type="title" class="form-control" id="title" placeholder="" name="title">
+                                </div>
+                                <div class="form-group">
+                                  <label for="Time">Time:</label>
+                                  <input type="time" class="form-control" id="time" placeholder="" name="time">
+                                </div>
+                                <div class="form-group">
+                                  <label for="Friends">Friends:</label>
+                                  <input type="friends" class="form-control" id="friends" placeholder="" name="friends">
+                                </div>
+                                <div class="form-group">
+                                  <label for="Reminder">Reminder:</label>
+                                  <input type="reminder" class="form-control" id="reminder" placeholder="" name="reminder">
+                                </div>
+                                <div class="form-group">
+                                  <label for="Routine">Routine:</label>
+                                  <input type="routine" class="form-control" id="routine" placeholder="" name="routine">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Save Event</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </script>
 
-                <div class="calmonth">
-                  <h3>August</h3>
-                </div>
+
+                <body>
+                  <div class="calmonth" >
+                    <h3> November </h3>
+                  </div>
+
+                  <div class="caldays" id="calen">
+
+                  </div>
+
+
+                  <script src="https://code.jquery.com/jquery.js"></script>
+                  <script src="../js/bootstrap.min.js"></script>
+                  <script src="../js/handlebars-v4.0.11.js"></script>
+                  <script src="../js/calendartest.js"></script>
     </body>
 </html>

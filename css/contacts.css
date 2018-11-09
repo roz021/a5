@@ -1,6 +1,5 @@
 #friendsall{
   width:100%;
-  height:;
   overflow:scroll;
   background-color: #E6E6E6;
   white-space: nowrap;
@@ -20,7 +19,10 @@
   width: 250px;
   height: 250px;
 }
-/*
+.modal-body img{
+  width: 250px;
+  height: 250px;
+}
 .sfriendsall {
   display: grid;
   grid-template-columns: auto auto auto;
