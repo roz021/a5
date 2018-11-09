@@ -4,6 +4,10 @@
     <head>
         <link href="../css/contacts.css" rel="stylesheet" />
         <link href="../css/home.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <title>Friends</title>
     </head>
 
@@ -68,33 +72,9 @@
                   <button type="filter">filter</button>
                 </div>
 
-                <div class="friendsall">
-
-                  <div class="panel panel-default friends" id="friend1" data-toggle="modal" data-target="#pguoModal">
-                    <div class="panel-body">
-                      <a href="#">
-                      <img src="../images/pguo.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                      <h6> Philip Guo </h6>
-                        <div class="modal fade" id="pguoModal" role="dialog">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Philip Guo</h4>
-                              </div>
-                              <div class="modal-body">
-                                <img src="../images/pguo.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        </a>
-                    </div>
-                  </div>
-
+                <div id="friendsall">
+<!--
+                
                   <div class="friends" id="friend2">
                     <a href="#">
                       <img src="../images/edwin.jpg" alt="Profile Photo" style="width:250px;height:300px">
@@ -104,7 +84,7 @@
 
                   <div class="friends" id="friend3">
                     <a href="#">
-                      <img src="../images/arnolds.png" alt="Profile Photo" style="width:250px;height:300px">
+                     <img src="../images/arnolds.png" alt="Profile Photo" style="width:250px;height:300px">
                       <h6> Arnold S. </h6>
                     </a>
                   </div>
@@ -115,9 +95,10 @@
                       <h6> Tyler TC </h6>
                     </a>
                   </div>
+                -->
 
                 </div>
-
+              
                 <div class="suggestedbar">
                   <h3>Suggested</h3>
                   <input type="text" placeholder="search friend" required>
@@ -220,5 +201,126 @@
                     </div>
                </div>
 
+               <script id="prof-prev" type="text/x-handlebars-template">
+             
+               <div class="modal fade" id="{{person}}Modal">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+      
+                          <div class="modal-header">
+                              <h5 class="modal-title">{{name}}</h5>
+                              <button type="button" class="close" data-dismiss="modal">&times;
+                              </button>
+                          </div>
+                          
+                          <div class="modal-body">
+                            <img src="../images/{{pic}}.png">
+                              <div class="form-group">
+                                  <label for="examplePost"></label>
+                                  <p id="examplePost">{{bio}}</p>
+                              <!--    <input type="text" class="form-control" id="examplePost"
+                                  aria-describedby="postHelp" placeholder="Share something">
+                              -->
+                              </div>
+                          </div>
+      
+                          <div class="modal-footer">
+                            <a href="{{profile}}.html">
+                              <button type="button" class="btn btn-danger" id="buttonPost" data-dismiss="modal">
+                                  More
+                              </button>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div> 
+             </script>
+
+
+             <script id="profs" type="text/x-handlebars-template">
+              <div class="friends" id="{{name}}">
+                <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"> -->
+                    <input type="image" src="../images/{{pic}}.png" name="saveForm" class="btn btn-primary" 
+                    id="picturePrev" data-toggle="modal" data-target="#{{person}}Modal" />
+                    <a href="{{profile}}.html">
+                    <h6>{{name}}</h6>
+                    </a>
+              </div>
+            </script>
+
+
+             
+<!--              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                  Share Something
+              </button> -->
+             
+               <!-- <div class="panel panel-default friends" id="{{friendNum}}" data-toggle="modal" data-target="#{{name}}Modal">
+                <div class="panel-body">
+                  <a href="#">
+                  <img src="{{image}}" alt="Profile Photo" style="width:250px;height:300px">
+                  <h6> Philip Guo </h6>
+                  
+
+                    <div class="modal fade" id="{{name}}Modal" role="dialog">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">{{fullName}}</h4>
+                          </div>
+                          <div class="modal-body">
+                            <img src="../images/pguo.jpg" alt="Profile Photo" style="width:250px;height:300px">
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </a>
+                </div>
+              </div>
+               
+               
+               
+         
+               
+               
+               <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+    
+                        <div class="modal-header">
+                            <h5 class="modal-title">{{name}}</h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;
+                            </button>
+                        </div>
+                        
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="examplePost"></label>
+                                <p id="examplePost">{{bio}}</p>
+                               <input type="text" class="form-control" id="examplePost"
+                                aria-describedby="postHelp" placeholder="Share something">
+                            
+                            </div>
+                        </div>
+    
+                        <div class="modal-footer">
+                          <a href="{{profile}}.html">
+                            <button type="button" class="btn btn-danger" id="buttonPost" data-dismiss="modal">
+                                More
+                            </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+          -->
+
+          <script src="https://code.jquery.com/jquery.js"></script>
+          <script src="js/bootstrap.min.js"></script>
+          <script src="js/handlebars-v4.0.11.js"></script>
+            
     </body>
 </html>
