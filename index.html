@@ -14,6 +14,9 @@
         $(document).ready(function(){
             console.log('hello world');
 
+            var posts = new Array();
+            console.log(this.posts);
+
             var source = $("#post-template").html();
             var template = Handlebars.compile(source);
 
@@ -78,7 +81,9 @@
                             <label for="examplePost"></label>
                             <input type="text" class="form-control" id="examplePost"
                             aria-describedby="postHelp" placeholder="Share something">
-
+                            <script>
+                              this.posts.push(JSON.stringify(getElementById('examplePost')));
+                            </script>
                         </div>
                     </div>
 
@@ -90,7 +95,6 @@
                 </div>
             </div>
         </div>
-
 
 
 
