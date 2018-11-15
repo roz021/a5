@@ -10,9 +10,9 @@ function CalendarApp(date) {
   this.apts = [
     {
       name: 'Finish this web app',
-      endTime: new Date(2016, 4, 30, 23),
-      startTime: new Date(2016, 4, 30, 21),
-      day: new Date(2016, 4, 30).toString()
+      endTime: new Date(2018, 10, 19, 23),
+      startTime: new Date(2018, 10, 19, 21),
+      day: new Date(2018, 10, 19).toString()
     },
      {
       name: 'My Birthday!',
@@ -23,7 +23,7 @@ function CalendarApp(date) {
 
   ];
 
-  this.aptDates = [new Date(2016, 4, 30).toString(),new Date(2016, 4, 1).toString()];
+  this.aptDates = [new Date(2018, 10, 19).toString(),new Date(2016, 4, 1).toString()];
   this.eles = {
   };
   this.calDaySelected = null;
