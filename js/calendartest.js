@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  console.log("hello");
 var complexData = [
   {'dayindex': 1},
   {'dayindex': 2},
@@ -40,6 +41,7 @@ for (var i = 0; i<complexData.length; i++) {
   var curHtml = template(curData);
   parentDiv.append(curHtml);
 }
+/*
 function store(){
 var inputTitle = document.getElementById("title");
 localStorage.setItem("title", inputTitle.value);
@@ -53,5 +55,5 @@ localStorage.setItem("friends", inputFriends.value);
 var inputReminder = document.getElementById("reminder");
 localStorage.setItem("reminder", inputReminder.value);
 }
-
+*/
 });
