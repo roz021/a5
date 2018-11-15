@@ -11,7 +11,7 @@
     </head>
 
     <script type="text/javascript">
-        $(document).ready(function(){
+         $(document).ready(function(){
             console.log('hello world');
 
             var posts = new Array();
@@ -22,7 +22,7 @@
 
             var parentDiv = $("#result");
 
-
+        
             $('#buttonPost').click(function(){
                 var dataPost = $("#myModal #examplePost").val().trim();
 
@@ -32,6 +32,8 @@
                 parentDiv.prepend(html);
                 //localStorage.setItem('post', JSON.stringify(myPost));
             });
+
+        });
 
            /* var newPost = JSON.parse(localStorage.getItem('post'));
             if (newPost){
@@ -45,7 +47,7 @@
                 $(this).toggleClass("liked");
             });
 
-        });
+    
 
 
     </script>
