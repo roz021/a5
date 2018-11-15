@@ -13,9 +13,9 @@ function CalendarApp(date) {
      this.apts = [
        {
          name: 'example',
-         endTime: new Date(2010, 1, 1, 1),
-         startTime: new Date(2010, 1, 1, 1),
-         day: new Date(2010, 1, 1).toString()
+         endTime: new Date(2018, 10, 10, 10),
+         startTime: new Date(2018, 10, 10, 10),
+         day: new Date(2018, 10, 10).toString()
        }
      ]
    }
@@ -27,7 +27,7 @@ function CalendarApp(date) {
    }
    else{
      console.log("THERE WERE NO EVENT DATES");
-     this.aptDates = [new Date(2010, 1, 1).toString()];
+     this.aptDates = [new Date(2018, 10, 10).toString()];
    }
   this.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   this.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -341,12 +341,13 @@ CalendarApp.prototype.addEvent = function() {
   
   var name = this.dayEventAddForm.nameEvent.value.trim();
   var dayOfDate = this.dayEventBoxEle.getAttribute("data-date");
+  console.log(dayOfDate);
   var dateObjectDay =  new Date(dayOfDate);
   var cleanDates = this.cleanEventTimeStampDates();
   
   this.apts.push({
     name: name,
-    day: dateObjectDay,
+    day: dayOfDate,//dateObjectDay,
     startTime: cleanDates[0],
     endTime: cleanDates[1]
   });
