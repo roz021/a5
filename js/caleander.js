@@ -187,7 +187,7 @@ CalendarApp.prototype.openDayWindow = function(date){
     // this.dayInspirationalQuote.textContent = this.quotes[_rand];
   } else {
     _dayTopbarText += eventsToday.length + " ";
-    this.dayInspirationalQuote.textContent = null;
+    // this.dayInspirationalQuote.textContent = null;
   }
   //this.dayEventsList.innerHTML = this.showEventsCreateHTMLView(eventsToday);
   while(this.dayEventsList.firstChild) {
