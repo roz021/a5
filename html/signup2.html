@@ -12,10 +12,53 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <!-- My Own CSS -->
   <link rel="stylesheet" href="../css/signup.css">
-  <script src="../js/signup2.js"></script>
+  <!-- <script src="../js/signup2.js"></script> -->
 
   </head>
 
+  <script type="text/javascript">
+    $(document).ready(function(){
+    console.log("initializing page");
+    var setname = localStorage.getItem('name');
+    if(setname){
+        $("#myName").html(setname);
+    }
+
+    $('#profbio').click(function(){
+    console.log("storing");
+    var inputBio = document.getElementById('bio').value;
+    console.log(inputBio);
+    localStorage.setItem('mybio', JSON.stringify(inputBio));
+
+    var prof = document.getElementById('profilepicture');
+    if (prof.files.length != 0){
+        console.log(prof.value);
+        console.log("converting image");
+    var img = new Image();
+    img.src = prof.value;    
+    var profData = getBase64Image(img);
+    localStorage.setItem('myprof', profData);
+    }
+    var bio = JSON.parse(localStorage.getItem('mybio'));
+        console.log(bio);
+        location.href="../html/signup3.html";
+    
+});
+
+function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+
+    var dataURL = canvas.toDataURL("image/png");
+
+    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+}
+    });
+</script>
   <body>
     <div class="jumbotron">
         <h1 align="center">Welcome</h1>
@@ -31,6 +74,8 @@
 
             <label for="profilepic"><b>Profile Photo</b></label>
             <input type="file" id="profilepicture" class="form-control" placeholder="Upload a Photo">
+            
+            <button type="button" id="profbio">Next</button>
         </div>
     </form>
 
