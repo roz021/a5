@@ -13,36 +13,39 @@
     <script type="text/javascript">
          $(document).ready(function(){
             console.log('hello world');
-
+            var myName = localStorage.getItem('name');
+            // var myImage = localStorage.getItem('myprof');
+            console.log("where the pic at");
+            var dataImage = localStorage.getItem('imageStore');
+            meImg = document.getElementById('mypicture');
+            // meImg.src = "data:image/png;base64," + dataImage;
+            meImg.src = dataImage;
+      
             var source = $("#post-template").html();
             var template = Handlebars.compile(source);
-
             var parentDiv = $("#result");
-
             //Makes all of the past posts appear through for loop
             var count = JSON.parse(localStorage.getItem('postNumber'));
             for(var i=1;i <= count;i++){
               var past = JSON.parse(localStorage.getItem('myPost'+i));
-
-              var myPost = {'poststring' : past};
+              var myPost = {'poststring' : past,
+                            'name' : myName,
+                        'mypic' : dataImage};
               var html = template(myPost);
               console.log(html);
               parentDiv.prepend(html);
             }
-
-
             $('#buttonPost').click(function(){
                 var dataPost = $("#myModal #examplePost").val().trim();
-
-                var myPost = {'poststring' : dataPost};
+                var myPost = {'poststring' : dataPost,
+                                'name' : myName,
+                            'mypic' : dataImage};
                 var html = template(myPost);
                 console.log(html);
                 parentDiv.prepend(html);
                 //localStorage.setItem('post', JSON.stringify(myPost));
             });
-
         });
-
            /* var newPost = JSON.parse(localStorage.getItem('post'));
             if (newPost){
                 var html = template(newPost);
@@ -50,14 +53,9 @@
                 parentDiv.prepend(html);
             }
             */
-
             $(".likeb").click(function(){
                 $(this).toggleClass("liked");
             });
-
-
-
-
     </script>
     <body>
 
