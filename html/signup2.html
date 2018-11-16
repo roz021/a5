@@ -10,6 +10,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- <link rel="shortcut icon" href=""> -->
+  <!-- <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">  -->
   <!-- My Own CSS -->
   <link rel="stylesheet" href="../css/signup.css">
   <!-- <script src="../js/signup2.js"></script> -->
@@ -97,7 +99,6 @@ function getBase64Image(img) {
             </div>
             <label>This is the Canvas:</label><br/>
             <canvas id="canvas-element"></canvas>
-            <label>This is the localstorage output:</label><br/>
             <div class="localstorage-output"></div>
         <button type="button" id="profbio">Next</button>
         </div>
@@ -122,7 +123,7 @@ function storeTheImage() {
     // Save image into localStorage
     try {
         window.localStorage.setItem("imageStore", imgAsDataURL);
-        $('.localstorage-output').html( window.localStorage.getItem('imageStore') );
+        // $('.localstorage-output').html( window.localStorage.getItem('imageStore') );
     }
     catch (e) {
         console.log("Storage failed: " + e);

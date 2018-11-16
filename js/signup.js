@@ -7,20 +7,12 @@ function storeInfo(){
 
     // var inputEmail = document.getElementById("myemail");
     // localStorage.setItem("email", inputEmail.value);
-}
 
-function validateInfo(){
-    console.log("validating");
     var yourname = localStorage.getItem('name');
+    console.log(yourname);
     var yourpass = localStorage.getItem('pass');
     // var youremail = localStorage.getItem('email');
-    if (yourname != "" && yourpass != "" ){
-        console.log("moving on");
-        location.href="../html/signup2.html";
-    }
-    else{
-        alert("Inputs Invalid!");
-    }
 
+    location.href="../html/signup2.html";
 }
    
