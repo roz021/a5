@@ -16,6 +16,12 @@
 //         console.log(JSON.parse(localStorage.getItem('myPost'+scount)));
       }
 
+      // function myFunction(){
+      //   console.log("where the pic at");
+      //   var dataImage = localStorage.getItem('myprof');
+      //   meImg = document.getElementById(mypicture);
+      //   meImg.src = "data:image/png;base64," + dataImage;
+      // }
       function storeComment(){
         
       }

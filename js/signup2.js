@@ -10,7 +10,20 @@ function initializePage(){
         $("#myName").html(setname);
     }
 }
-
+function savePhoto(){
+    prof = document.getElementById('profilepicture');
+    if (prof.files.length != 0){
+        console.log(prof.value);
+        console.log("converting image");
+    // var img = new Image();
+    // img.src = prof.value;    
+    profData = getBase64Image(prof);
+    localStorage.setItem('myprof', profData);
+    }
+    else{
+        alert("couldn't save");
+    }
+}
 // function storeInfo(){
 //     console.log("storing");
 //     var inputBio = document.getElementById('bio').value;
