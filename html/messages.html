@@ -21,7 +21,17 @@
                 }
                 </script>
 
-        <div id="myself">
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+              var source = $("#newmess-template").html();
+              var template = Handlebars.compile(source);
+
+              var parentDiv = $("#bey");
+            });
+        </script>
+
+        <div class=container id="myself">
             <a href="myProfile.html">
              <h2> Roy Zhang </h2>
             <img src="../images/profpic.jpg" alt="me">
@@ -34,24 +44,34 @@
             </a>
         </div>
 
-        <div class="history" id="bey">
+        <!-- <script id="newmess-template" type="text/x-handlebars-template">
+          <div class="container history" id="{{personName}}">
+              <a href="{{htmlname}}.html">
+                  <img src="../images/{{pic}}" alt="{{personName}}">
+                  <p>{{fullname}}</p>
+              </a>
+          </div>
+        </script> -->
+
+
+        <div class="container history" id="bey">
             <a href="examplechat1.html">
                 <img src="../images/Beyonce.jpg" alt="bey">
-                <p>sounds g, i'll see you there</p>
+                <p>Beyonce Carter-Knowles</p>
             </a>
         </div>
 
-        <div class="history" id="edwin">
-            <a href="#">
+        <div class="container history" id="edwin">
+            <a href="examplechat2.html">
             <img src="../images/edwin.jpg" alt="ed">
-            <p>yo was that midterm hard or what</p>
+            <p>Edwin Fu</p>
             </a>
         </div>
 
-        <div class="history" id="pguo">
-            <a href="#">
+        <div class="container history" id="pguo">
+            <a href="examplechat3.html">
                 <img src="../images/pguo.png" alt="pguo">
-                <p>how'd you get 0% on the midterm...</p>
+                <p>Philip Guo</p>
             </a>
         </div>
     </body>

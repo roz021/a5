@@ -11,7 +11,7 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/handlebars-v4.0.11.js"></script>
 
-    <title>Beyonce Knowles</title>
+    <title>Edwin Fu</title>
   </head>
 
   <body>
@@ -20,14 +20,14 @@
     </div>
 
     <script>
-            function back() {
-                window.history.back();
-            }
+        function back() {
+          window.history.back();
+        }
     </script>
 
     <div class="container personInfo" id="pardiv">
-      <img src="../images/Beyonce.jpg" class="img-circle center-block" alt="Beyonce" width="300" height="300">
-      <h2>Beyonce Knowles-Carter</h2>
+      <img src="../images/edwin.jpg" class="img-circle center-block" alt="Edwin" width="300" height="300">
+      <h2>Edwin Fu</h2>
     </div>
 
     <!-- template for chat message -->
@@ -45,7 +45,7 @@
         <div class="pull-left">
           <div class="panel panel-default">
             <div class="panel-body">
-              <h5> hey </h5>
+              <h5> wassup </h5>
             </div>
           </div>
         </div>
@@ -60,9 +60,9 @@
 
     // Shows past chats when page opens
     $(document).ready(function(){
-      var count = JSON.parse(localStorage.getItem('chatNumbk'));
+      var count = JSON.parse(localStorage.getItem('chatNumef'));
       for(var i=1;i <= count;i++){
-        var past = JSON.parse(localStorage.getItem('myChatbk'+i));
+        var past = JSON.parse(localStorage.getItem('myChatef'+i));
 
         var myMess = {'exMessage' : past};
         var html = template(myMess);
@@ -78,16 +78,16 @@
         parentDiv.append(html);
 
         //puts your message into localStorage
-        if(!localStorage.getItem('chatNumbk')){
-          localStorage.setItem("chatNumbk", JSON.stringify(0));
+        if(!localStorage.getItem('chatNumef')){
+          localStorage.setItem("chatNumef", JSON.stringify(0));
         }
-        var count = JSON.parse(localStorage.getItem('chatNumbk'));
+        var count = JSON.parse(localStorage.getItem('chatNumef'));
         count++;
-        localStorage.setItem("chatNumbk", JSON.stringify(count));
+        localStorage.setItem("chatNumef", JSON.stringify(count));
         var scount = JSON.stringify(count);
 
         var inputName = document.getElementById("exChat").value;
-        localStorage.setItem("myChatbk"+scount, JSON.stringify((inputName)));
+        localStorage.setItem("myChatef"+scount, JSON.stringify((inputName)));
       }
     </script>
 
