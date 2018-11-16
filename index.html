@@ -19,7 +19,18 @@
 
             var parentDiv = $("#result");
 
-        
+            //Makes all of the past posts appear through for loop
+            var count = JSON.parse(localStorage.getItem('postNumber'));
+            for(var i=1;i <= count;i++){
+              var past = JSON.parse(localStorage.getItem('myPost'+i));
+
+              var myPost = {'poststring' : past};
+              var html = template(myPost);
+              console.log(html);
+              parentDiv.prepend(html);
+            }
+
+
             $('#buttonPost').click(function(){
                 var dataPost = $("#myModal #examplePost").val().trim();
 
@@ -44,7 +55,7 @@
                 $(this).toggleClass("liked");
             });
 
-    
+
 
 
     </script>
@@ -80,19 +91,17 @@
                             <label for="examplePost"></label>
                             <input type="text" class="form-control" id="examplePost"
                             aria-describedby="postHelp" placeholder="Share something">
-
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" id="buttonPost" data-dismiss="modal">
+                        <button type="button" onclick="storeInfo();" class="btn btn-danger" id="buttonPost" data-dismiss="modal">
                             Post
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-
 
 
 
@@ -208,6 +217,7 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/handlebars-v4.0.11.js"></script>
+    <script src="js/home.js"></script>
 
     </body>
 </html>
