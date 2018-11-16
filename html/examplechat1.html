@@ -2,13 +2,21 @@
 
 <html>
   <head>
-      <link href="../css/examplemessage.css" rel="stylesheet" />
-      <title>Beyonce Knowles</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="../css/examplemessage.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/handlebars-v4.0.11.js"></script>
+
+    <title>Beyonce Knowles</title>
   </head>
 
   <body>
     <div id="back">
-        <button onclick="back()"><</button>
+        <button onclick="back()"></button>
     </div>
 
     <script>
@@ -17,42 +25,73 @@
             }
     </script>
 
-    <div class="messages">
-      <div class="message rmess" id="message1">
-        <p> hey </p>
-      </div>
-      <div class="message bmess" id="message2">
-        <p> Hey what's up? </p>
-      </div>
-      <div class="message rmess" id="message3">
-        <p> what are you up to tonight at 7PM </p>
-      </div>
-      <div class="message bmess" id="message4">
-        <p> I was thinking about playing tennis with Frank </p>
-      </div>
-      <div class="message rmess" id="message5">
-        <p> which frank? </p>
-      </div>
-      <div class="message bmess" id="message6">
-        <p> Frank Ocean. Wanna join?</p>
-      </div>
-      <div class="message rmess" id="message7">
-        <p> i was looking for someone to lift with me but yeah that sounds fun too! </p>
-      </div>
-      <div class="message rmess" id="message8">
-        <p> where should we meet? </p>
-      </div>
-      <div class="message bmess" id="message0">
-        <p> Meet at Pines? </p>
-      </div>
-      <div class="message rmess" id="message10">
-        <p> sounds good ill see you there </p>
-      </div>
+    <div class="container personInfo" id="pardiv">
+      <img src="../images/Beyonce.jpg" class="img-circle center-block" alt="Beyonce" width="300" height="300">
+      <h2>Beyonce Knowles-Carter</h2>
     </div>
 
-    <div class="messagebar">
-      <input type="text" placeholder="message" required>
+    <!-- example chat message what's up -->
+    <!-- <div class="container" >
+      <div class="pull-right">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h5> Hey what's up </h5>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- template for chat message -->
+    <script id="mychat-template" type="text/x-handlebars-template">
+      <div class="container">
+        <div class="pull-right">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h5> {{exMessage}} </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="pull-left">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h5> hey </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script>
+      var source = $("#mychat-template").html();
+      var template = Handlebars.compile(source);
+
+      var parentDiv = $("#pardiv");
+
+      function beamMeUp(){
+        var chatInput = $("#messagebar #exChat").val().trim();
+        var myMess = {'exMessage' : chatInput};
+        var html = template(myMess);
+        parentDiv.append(html);
+
+        if(!localStorage.getItem('chatNum')){
+          localStorage.setItem("chatNum", JSON.stringify(0));
+        }
+        var count = JSON.parse(localStorage.getItem('chatNum'));
+        count++;
+        localStorage.setItem("chatNum", JSON.stringify(count));
+        var scount = JSON.stringify(count);
+      }
+    </script>
+
+
+    <div class="container" id="messagebar">
+      <input type="text" class="form-control" aria-describedby="comHelp" id="exChat" placeholder="Type a message...">
+      <button id="sendBtn" onclick="beamMeUp();">Send</button>
     </div>
+
+
 
   </body>
 </html>

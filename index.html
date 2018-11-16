@@ -165,9 +165,13 @@
                    <!-- <button class="likeb">
                    <img id="like" src="images/heart.png" alt="like">
                    </button> -->
-                   <button id="comm">
+                   <button id="comm" data-toggle="collapse" data-target="#demo">
                    <img id="comment" src="images/comment.png" alt="comment">
                    </button>
+                   <div id="demo" class="collapse">
+                     <input type="text" class="form-control" id="exampleCom" placeholder="Write a comment...">
+                     <button type="button" onclick="storeComment();" class="btn btn-primary btn-xs">post</button>
+                   </div>
                    </div>
 
                 <div id="ed">
@@ -203,7 +207,7 @@
             <div class="newsfeed" id="post">
                 <img src="images/profpic.jpg" class="roy" alt="roy">
                 <h5>Roy Zhang</h5>
-            <p>{{poststring}}</p>
+                  <p>{{poststring}}</p>
                     <!-- <button class="likeb">
                     <img id="like" src="images/heart.png" alt="like">
                     </button> -->
@@ -211,8 +215,14 @@
                 <img id="comment" src="images/comment.png" alt="comment">
                 </button>
 
-        </div>
-    </script>
+            </div>
+            </script>
+
+            <script id="comment-template" type="text/x-handlebars-template">
+              <div class="com" id="comment">
+                <h5>{{commentString}}</h5>
+              </div>
+            </script>
 
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
