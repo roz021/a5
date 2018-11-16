@@ -30,17 +30,6 @@
       <h2>Beyonce Knowles-Carter</h2>
     </div>
 
-    <!-- example chat message what's up -->
-    <!-- <div class="container" >
-      <div class="pull-right">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h5> Hey what's up </h5>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <!-- template for chat message -->
     <script id="mychat-template" type="text/x-handlebars-template">
       <div class="container">
@@ -69,12 +58,26 @@
 
       var parentDiv = $("#pardiv");
 
+    // Shows past chats when page opens
+    $(document).ready(function(){
+      var count = JSON.parse(localStorage.getItem('chatNum'));
+      for(var i=1;i <= count;i++){
+        var past = JSON.parse(localStorage.getItem('myChat'+i));
+
+        var myMess = {'exMessage' : past};
+        var html = template(myMess);
+        parentDiv.append(html);
+      }
+    });
+
+    //sends chat and they respond with hey
       function beamMeUp(){
         var chatInput = $("#messagebar #exChat").val().trim();
         var myMess = {'exMessage' : chatInput};
         var html = template(myMess);
         parentDiv.append(html);
 
+        //puts your message into localStorage
         if(!localStorage.getItem('chatNum')){
           localStorage.setItem("chatNum", JSON.stringify(0));
         }
@@ -82,6 +85,9 @@
         count++;
         localStorage.setItem("chatNum", JSON.stringify(count));
         var scount = JSON.stringify(count);
+
+        var inputName = document.getElementById("exChat").value;
+        localStorage.setItem("myChat"+scount, JSON.stringify((inputName)));
       }
     </script>
 
