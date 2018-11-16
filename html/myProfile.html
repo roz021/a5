@@ -2,8 +2,14 @@
 
 <html>
     <head>
-        <title>Roy Zhang</title>
+        <title>Me</title>
         <link href="../css/home.css" rel="stylesheet">
+          <!-- Latest compiled/minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- jQuery Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
     <body>
@@ -59,13 +65,40 @@
 
         <div id="profilePic">
             <img src="../images/profpic.jpg" alt="Profile Photo" style="width:250px;height:300px">
-            <h1>ROY ZHANG</h1>
-            <h3>bio</h3>
-            <p>here would be personal bio</p>
-            <h3>photos/videos</h3>
-            <p>here would be photos/vids you posted</p>
-            <h3>posts</h3>
-            <p>here would be posts beginning with most recent</p>
+            <h1 id="myname"></h1>
+            <h3>BIO</h3>
+            <p id="mybio"></p>
+            <h3>INTERESTS</h3>
+            <p id="interests"></p>
         </div>
+
+        <script type="text/javascript">
+        $(document).ready(function(){
+        var name = localStorage.getItem('name');
+        var bio = JSON.parse(localStorage.getItem('mybio'));
+        var interest = JSON.parse(localStorage.getItem('interests'));
+        if(name){
+            $("#myname").html(name);
+        }
+        if(bio){
+            console.log(bio);
+            $("#mybio").text(bio);
+        }
+
+        for (var i = 0; i < interest.length; i++){
+            // console.log(interest[i]);
+            if (interests[i] == "not"){
+                continue;
+            }
+            else{
+                console.log(interest[i]);
+                var inter = document.createTextNode(interest[i]);
+                $("#interests").append(inter);
+            }
+          
+        }
+    })
+
+        </script>
     </body>
 </html>
