@@ -15,12 +15,11 @@
     </head>
 
     <script type="text/javascript">
-    $(document).ready(function(){
-    var friends = [
-    {'person' : 'pguo', 'name' : 'Phillip Guo' , 'pic' : 'pguo', 'bio' : 'blah', 'profile' : 'pguo' },
-    {'person' : 'ed', 'name' : 'Edwin Fu', 'pic' : 'edwin' , 'bio' : 'blah', 'profile' : 'edw'  },
-    {'person' : 'arn', 'name' : 'Arnold S.', 'pic' : 'arnolds', 'bio' : 'blah' , 'profile' : 'arn'  },
-    {'person' : 'ty', 'name' : 'Tyler the Creator', 'pic' : 'TylerTC' , 'bio' : 'blah', 'profile' : 'ttc'}
+        var friends = [
+    {'person' : 'pguo', 'name' : 'Phillip Guo' , 'pic' : 'pguo', 'bio' : 'blah', 'profile' : 'pguo' , 'num' : '10 Mutual Interests'},
+    {'person' : 'ed', 'name' : 'Edwin Fu', 'pic' : 'edwin' , 'bio' : 'blah', 'profile' : 'edw' , 'num' : '9 Mutual Interests' },
+    {'person' : 'arn', 'name' : 'Arnold S.', 'pic' : 'arnolds', 'bio' : 'blah' , 'profile' : 'arn' , 'num' : '10 Mutual Interests' },
+    {'person' : 'ty', 'name' : 'Tyler the Creator', 'pic' : 'TylerTC' , 'bio' : 'blah', 'profile' : 'ttc' , 'num' : '11 Mutual Interests'}
 ]
 var sfriends = [
     {'person' : 'bey', 'name' : 'Beyonce Knowles', 'pic' : 'Beyonce', 'bio' : 'blah', 'profile' : 'bey',
@@ -30,6 +29,9 @@ var sfriends = [
     {'person' : 'klay', 'name' : 'Klay Thompson', 'pic' : 'KThompson' , 'bio' : 'blah', 'profile' : 'kt' ,
       'num' : '3 Mutual Interests'},
 ]
+    $(document).ready(function(){
+localStorage.setItem('friends', JSON.stringify(friends));
+localStorage.setItem('sfriends', JSON.stringify(sfriends));
 
 var source = $("#profs").html();
 var template = Handlebars.compile(source);
@@ -38,7 +40,6 @@ var parentDiv = $("#friendsall");
 for (var i = 0; i < friends.length; i++){
     var curData = friends[i];
     var curHtml = template(curData);
-    console.log(curHtml);
     parentDiv.append(curHtml);
 }
 
@@ -49,31 +50,43 @@ var parentsugDiv = $("#sfriendsall");
 for (var i =0; i < sfriends.length; i++){
   var curData = sfriends[i];
   var curHtml = templatesug(curData);
-  console.log(curHtml);
   parentsugDiv.append(curHtml);
 }
 
-var sourceprev = $("#prof-prev").html();
+var sourceprev = $("#prof-prev-curr").html();
 var templateprev = Handlebars.compile(sourceprev);
 var parentprevDiv = $("#friendsall");
 
 for (var i =0; i < friends.length; i++){
   var curData = friends[i];
   var curHtml = templateprev(curData);
-  console.log(curHtml);
   parentprevDiv.append(curHtml);
 }
-  var sourcePrevSug = $("#prof-prev").html();
+  var sourcePrevSug = $("#prof-prev-sug").html();
   var templateSugPrev = Handlebars.compile(sourcePrevSug);
   var parentSugDiv = $("#sfriendsall");
 
 for (var i =0; i < sfriends.length; i++){
   var curData = sfriends[i];
   var curHtml = templateSugPrev(curData);
-  console.log(curHtml);
   parentSugDiv.append(curHtml);
 }
     });
+
+function remove(obj){
+  var curr = JSON.parse(localStorage.getItem('friends'));
+  var sugg = JSON.parse(localStorage.getItem('sfriends'));
+  for (var i = 0; i < curr.length; i++){
+    if (curr[i].name == obj){
+      console.log("found " + obj + "at index" + i);
+      var temp = curr[i];
+      curr.splice(i, 1);
+      sugg.push(temp);
+      localStorage.setItem('friends', JSON.stringify(curr));
+      localStorage.setItem('sfriends', JSON.stringify(sugg));
+    }
+  }
+}
     </script>
     <body>
         <!-- <div class="search">
@@ -137,29 +150,6 @@ for (var i =0; i < sfriends.length; i++){
                 </div>
 
                 <div id="friendsall">
-<!--
-
-                  <div class="friends" id="friend2">
-                    <a href="#">
-                      <img src="../images/edwin.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                      <h6> Edwin Fu </h6>
-                    </a>
-                  </div>
-
-                  <div class="friends" id="friend3">
-                    <a href="#">
-                     <img src="../images/arnolds.png" alt="Profile Photo" style="width:250px;height:300px">
-                      <h6> Arnold S. </h6>
-                    </a>
-                  </div>
-
-                  <div class="friends" id="friend4">
-                    <a href="#">
-                      <img src="../images/TylerTC.png" alt="Profile Photo" style="width:250px;height:300px">
-                      <h6> Tyler TC </h6>
-                    </a>
-                  </div>
-                -->
 
                 </div>
 
@@ -172,111 +162,16 @@ for (var i =0; i < sfriends.length; i++){
                 <div id="sfriendsall">
 
                 </div>
-<!--
-                <div class="sfriendsall">
-                    <div class="sfriends" id="sfriend1">
-                      <a href="#">
-                        <img src="../images/Beyonce.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                        <h6> Beyonce Knowles </h6>
-                        <p>4 mutual interests</p>
-                      </a>
-                    </div>
 
-                    <div class="sfriends" id="sfriend2">
-                      <a href="#">
-                        <img src="../images/FOcean.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                        <h6> Frank Ocean </h6>
-                        <p>4 mutual interests</p>
-                      </a>
-                    </div>
-
-                    <div class="sfriends" id="sfriend3">
-                      <a href="#">
-                        <img src="../images/KThompson.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                        <h6> Klay Thompson </h6>
-                        <p>3 mutual interests</p>
-                      </a>
-                    </div>
-
-                    <div class="sfriends" id="sfriend4">
-                      <a href="#">
-                        <img src="../images/LilPump.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                        <h6> Lil Pump </h6>
-                        <p>3 mutual interests</p>
-                      </a>
-                    </div>
-
-                    <div class="sfriends" id="sfriend5">
-                      <a href="#">
-                        <img src="../images/MCyrus.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                        <h6> Miley Cyrus </h6>
-                        <p>3 mutual interests</p>
-                      </a>
-                    </div>
-
-                    <div class="sfriends" id="sfriend6">
-                      <a href="#">
-                        <img src="../images/MumfordS.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                        <h6> Mumford S. </h6>
-                        <p>2 mutual interests</p>
-                      </a>
-                    </div>
-
-                    <div class="sfriends" id="sfriend7">
-                      <a href="#">
-                        <img src="../images/OWinfrey.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                        <h6> Oprah W. </h6>
-                        <p>1 mutual interests</p>
-                      </a>
-                    </div>
-
-                    <div class="sfriends" id="sfriend8">
-                      <a href="#">
-                        <img src="../images/Pitbull.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                        <h6> Pitbull </h6>
-                        <p>1 mutual interests</p>
-                      </a>
-                    </div>
-
-                    <div class="sfriends" id="sfriend9">
-                      <a href="#">
-                        <img src="../images/Kermit.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                        <h6> Kermit </h6>
-                        <p>1 mutual interests</p>
-                      </a>
-                    </div>
-
-                    <div class="sfriends" id="sfriend10">
-                      <a href="#">
-                        <img src="../images/PMalone.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                        <h6> Post Malone </h6>
-                        <p>1 mutual interests</p>
-                      </a>
-                    </div>
-
-                    <div class="sfriends" id="sfriend11">
-                      <a href="#">
-                        <img src="../images/SWoods.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                        <h6> Slick Woods </h6>
-                      </a>
-                    </div>
-
-                    <div class="sfriends" id="sfriend12">
-                      <a href="#">
-                        <img src="../images/SJobs.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                        <h6> Steve Jobs </h6>
-                      </a>
-                    </div>
-               </div>
-              -->
-               <script id="prof-prev" type="text/x-handlebars-template">
+              <!-- FOR CURRENT FRIENDS -->
+               <script id="prof-prev-curr" type="text/x-handlebars-template">
 
                <div class="modal fade" id="{{person}}Modal">
                   <div class="modal-dialog">
                       <div class="modal-content">
 
                           <div class="modal-header">
-                              <h5 class="modal-title">{{name}}</h5>
+                              <h5 id="name" class="modal-title">{{name}}</h5>
                               <button type="button" class="close" data-dismiss="modal">&times;
                               </button>
                           </div>
@@ -303,12 +198,58 @@ for (var i =0; i < sfriends.length; i++){
                                 Schedule
                               </button>
                             </a>
+                            <button type="button" value="{{name}}" class="btn btn-danger" id="buttonRemove" data-dismiss="modal" onclick="remove(value)">
+                              Remove Friend
+                            </button>
                           </div>
                       </div>
                   </div>
               </div>
              </script>
 
+             <!-- FOR SUGGESTED FRIENDS -->
+             <script id="prof-prev-sug" type="text/x-handlebars-template">
+
+              <div class="modal fade" id="{{person}}Modal">
+                 <div class="modal-dialog">
+                     <div class="modal-content">
+
+                         <div class="modal-header">
+                             <h5 class="modal-title">{{name}}</h5>
+                             <button type="button" class="close" data-dismiss="modal">&times;
+                             </button>
+                         </div>
+
+                         <div class="modal-body">
+                           <img src="../images/{{pic}}.png">
+                             <div class="form-group">
+                                 <label for="examplePost"></label>
+                                 <p id="examplePost">{{bio}}</p>
+                             <!--    <input type="text" class="form-control" id="examplePost"
+                                 aria-describedby="postHelp" placeholder="Share something">
+                             -->
+                             </div>
+                         </div>
+
+                         <div class="modal-footer">
+                           <a href="fake/{{profile}}.html">
+                             <button type="button" class="btn btn-danger" id="buttonPost">
+                                 More
+                             </button>
+                             </a>
+                           <a href="caleandar.html">
+                             <button type="button" class="btn btn-danger" id="buttonPlan">
+                               Schedule
+                             </button>
+                           </a>
+                           <button type="button" class="btn btn-danger" id="buttonAdd" onclick="add()">
+                             Add Friend
+                           </button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+            </script>
 
              <script id="profs" type="text/x-handlebars-template">
               <div class="friends" id="{{name}}">
@@ -321,79 +262,5 @@ for (var i =0; i < sfriends.length; i++){
                     </a>
               </div>
             </script>
-
-
-
-<!--              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                  Share Something
-              </button> -->
-
-               <!-- <div class="panel panel-default friends" id="{{friendNum}}" data-toggle="modal" data-target="#{{name}}Modal">
-                <div class="panel-body">
-                  <a href="#">
-                  <img src="{{image}}" alt="Profile Photo" style="width:250px;height:300px">
-                  <h6> Philip Guo </h6>
-
-
-                    <div class="modal fade" id="{{name}}Modal" role="dialog">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">{{fullName}}</h4>
-                          </div>
-                          <div class="modal-body">
-                            <img src="../images/pguo.jpg" alt="Profile Photo" style="width:250px;height:300px">
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </a>
-                </div>
-              </div>
-
-
-
-
-
-
-               <div class="modal fade" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                        <div class="modal-header">
-                            <h5 class="modal-title">{{name}}</h5>
-                            <button type="button" class="close" data-dismiss="modal">&times;
-                            </button>
-                        </div>
-
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="examplePost"></label>
-                                <p id="examplePost">{{bio}}</p>
-                               <input type="text" class="form-control" id="examplePost"
-                                aria-describedby="postHelp" placeholder="Share something">
-
-                            </div>
-                        </div>
-
-                        <div class="modal-footer">
-                          <a href="{{profile}}.html">
-                            <button type="button" class="btn btn-danger" id="buttonPost" data-dismiss="modal">
-                                More
-                            </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          -->
-
-
-          <!--<script src="../js/contacts.js"></script>-->
-
     </body>
 </html>
