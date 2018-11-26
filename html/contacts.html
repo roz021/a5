@@ -11,6 +11,7 @@
         <script src="https://code.jquery.com/jquery.js"></script>
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/handlebars-v4.0.11.js"></script>
+        <!-- <script src="../js/contacts.js"></script> -->
         <title>Friends</title>
     </head>
 
@@ -32,7 +33,7 @@ var sfriends = [
     $(document).ready(function(){
 localStorage.setItem('friends', JSON.stringify(friends));
 localStorage.setItem('sfriends', JSON.stringify(sfriends));
-
+//FOR THE PREVIEW
 var source = $("#profs").html();
 var template = Handlebars.compile(source);
 var parentDiv = $("#friendsall");
@@ -43,16 +44,16 @@ for (var i = 0; i < friends.length; i++){
     parentDiv.append(curHtml);
 }
 
-var sourcesug = $("#profs").html();
-var templatesug = Handlebars.compile(sourcesug);
+// var sourcesug = $("#profs").html();
+// var templatesug = Handlebars.compile(sourcesug);
 var parentsugDiv = $("#sfriendsall");
 
 for (var i =0; i < sfriends.length; i++){
   var curData = sfriends[i];
-  var curHtml = templatesug(curData);
+  var curHtml = template(curData);
   parentsugDiv.append(curHtml);
 }
-
+//FOR THE MODAL
 var sourceprev = $("#prof-prev-curr").html();
 var templateprev = Handlebars.compile(sourceprev);
 var parentprevDiv = $("#friendsall");
@@ -73,6 +74,7 @@ for (var i =0; i < sfriends.length; i++){
 }
     });
 
+
 function remove(obj){
   var curr = JSON.parse(localStorage.getItem('friends'));
   var sugg = JSON.parse(localStorage.getItem('sfriends'));
@@ -80,10 +82,13 @@ function remove(obj){
     if (curr[i].name == obj){
       console.log("found " + obj + "at index" + i);
       var temp = curr[i];
+      // var tempHtml = template(temp);
+      document.getElementById(friendsall).innerHTML = "";
       curr.splice(i, 1);
       sugg.push(temp);
       localStorage.setItem('friends', JSON.stringify(curr));
       localStorage.setItem('sfriends', JSON.stringify(sugg));
+      
     }
   }
 }
@@ -131,11 +136,7 @@ function remove(obj){
                     </a>
                 </div>
 
-              <!--  <div id="logs">
-                    <a href="logs.html">
-                        <img src="../images/logs.png" alt="logs" style="width:25px;height:25px">
-                    </a>
-                </div> -->
+
 
                 <div id="myProfile">
                     <a href="myProfile.html">
