@@ -1,10 +1,4 @@
     function storeInterests(){
         localStorage.setItem('interests', JSON.stringify(allInt));
-        location.href="home.html";
-    }        
-
-  
-          
-        
-  
-    
+        location.href="../home.html";
+    }
