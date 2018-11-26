@@ -19,7 +19,7 @@
             var dataImage = localStorage.getItem('profileimg');
             meImg = document.getElementById('profilepic');
             meImg.setAttribute('src', dataImage);
-      
+
             var source = $("#post-template").html();
             var template = Handlebars.compile(source);
             var parentDiv = $("#result");
@@ -59,11 +59,6 @@
     <body>
 
         <div id="searchshare">
-        <!-- <div class="search">
-
-                    <input type="text" placeholder="Search.." name="search">
-
-        </div> -->
 
         <div id="share">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
@@ -153,7 +148,7 @@
                 </div>
 
             <div id="newsfeed">
-                <div id="pguo">
+                <div class="container" id="pguo">
                    <img id="profile" src="../images/pguo2.jpg" alt="ex1">
                    <h5> Philip Guo</h5>
                    <p>I'm gonna go to RIMAC at around 8PM. Probably hitting up taco stand after,
@@ -170,8 +165,10 @@
                      <button type="button" onclick="storeComment();" class="btn btn-primary btn-xs">post</button>
                    </div>
                    </div> -->
+                  </div>
 
-                <div id="ed">
+                <div class="container" id="ed">
+                  <div class="panel panel-default">
                     <img id="profile" src="../images/edwin.jpg" alt="ed">
                     <h5> Edwin Fu</h5>
                     <p> Gotta make sure your muscles are ROLLED OUT!</p>
@@ -184,9 +181,11 @@
                     <!-- <button id="comm">
                     <img id="comment" src="images/comment.png" alt="comment">
                     </button> -->
+                  </div>
                 </div>
 
-                <div id="arnold">
+                <div class="container" id="arnold">
+                  <div class="panel panel-default">
                     <img id="profile" src="../images/arnolds.png" class="arn1" alt="arn">
                     <h5>Arnold Schwarzenegger</h5>
                     <p>Thought I looked cute, might delete l8er</p>
@@ -197,11 +196,12 @@
                     <!-- <button id="comm">
                     <img id="comment" src="images/comment.png" alt="comment">
                         </button> -->
-                </div>
+                  </div>
                 </div>
 
+
             <script id="post-template" type="text/x-handlebars-template">
-            <div class="newsfeed" id="post">
+            <div class="container" id="post">
                 <img src={{mypic}} class="roy" alt="roy">
                 <h5>{{name}}</h5>
                   <p>{{poststring}}</p>
