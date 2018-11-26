@@ -8,7 +8,7 @@
 
 .friends{
   display:inline-block;
-  height:400px;
+  height:150px;
   background-color: #FFFFFF;
   border:5px solid #FFFFFF;;
   text-align:center;
@@ -16,13 +16,13 @@
 }
 
 #friendsall input{
-  width: 250px;
-  height: 250px;
+  width: 100px;
+  height: 100px;
 }
 
 #sfriendsall input{
-  width: 250px;
-  height: 250px;
+  width: 100px;
+  height: 100px;
 }
 .modal-body img{
   width: 250px;
@@ -41,4 +41,7 @@
   font-size: 30px;
   text-align: center;
 }
-*/
+
+.friendsbar{
+  padding-top: 50px;
+}

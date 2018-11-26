@@ -8,6 +8,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></</script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/handlebars-v4.0.11.js"></script>
+        <script src="https://code.jquery.com/jquery.js"></script>
     </head>
 
     <body>
@@ -23,7 +26,16 @@
 
         <script type="text/javascript">
             $(document).ready(function(){
-
+            
+            var name = localStorage.getItem("name");
+            if (name){
+                console.log("changing name");
+                console.log(name);
+                $("#name").html(name);
+            }
+                        var dataImage = localStorage.getItem('profileimg');
+            meImg = document.getElementById('profilepic');
+            meImg.setAttribute('src', dataImage);
               var source = $("#newmess-template").html();
               var template = Handlebars.compile(source);
 
@@ -33,8 +45,8 @@
 
         <div class=container id="myself">
             <a href="myProfile.html">
-             <h2> Roy Zhang </h2>
-            <img src="../images/profpic.jpg" alt="me">
+             <h2 id="name"> Roy Zhang </h2>
+            <img id="profilepic" src="../images/profpic.jpg" alt="me">
             </a>
         </div>
 
@@ -44,14 +56,14 @@
             </a>
         </div>
 
-        <!-- <script id="newmess-template" type="text/x-handlebars-template">
+        <script id="newmess-template" type="text/x-handlebars-template">
           <div class="container history" id="{{personName}}">
               <a href="{{htmlname}}.html">
                   <img src="../images/{{pic}}" alt="{{personName}}">
                   <p>{{fullname}}</p>
               </a>
           </div>
-        </script> -->
+        </script>
 
 
         <div class="container history" id="bey">

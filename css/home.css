@@ -28,28 +28,30 @@ body{
 }
 /*nav bar css*/
 footer{
-    background-color: #979797;
+
+    background: linear-gradient(135deg,rgba(204,255,255,0.6), rgba(255,204,204,0.6));
     overflow: hidden;
     position: fixed;
     bottom: 0;
     z-index: 1;
     width: 100%;
+    display: flex;
+    justify-content: space-between; 
+    text-align:center;
 }
 
 footer a{
-    float: left;
     display: inline-block;
-    color: #f2f2f2;
+    /* background-color: blue; */
     padding: 20px;
     margin-left: auto;
     margin-right: auto;
 }
 
 footer img{
-    display: flex;
     width: 35px;
     height: 35px;
-}
+} 
 /*personal profile image top left*/
 #myProfile img{
     border-radius: 50%;

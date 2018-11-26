@@ -18,6 +18,13 @@
     <script type="text/javascript">
          $(document).ready(function(){
             console.log('hello world');
+            var myName = localStorage.getItem('name');
+            // var myImage = localStorage.getItem('myprof');
+            console.log("where the pic at");
+            var dataImage = localStorage.getItem('profileimg');
+            meImg = document.getElementById('profilepic');
+            meImg.setAttribute('src', dataImage);
+
 
             var source = $("#post-template").html();
             var template = Handlebars.compile(source);
@@ -156,7 +163,7 @@
 
                 <div id="myProfile">
                     <a href="html/myProfile.html">
-                        <img src="images/profpic.jpg" alt="me">
+                        <img id="profilepic" src="images/profpic.jpg" alt="me">
                     </a>
                 </div>
 
