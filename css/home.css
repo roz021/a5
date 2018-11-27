@@ -48,6 +48,14 @@ footer a{
     margin-right: auto;
 }
 
+footer a:hover{
+    
+    -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px yellow;background-color: (rgba(59, 255, 255, 0.9));
+}
+
 footer img{
     width: 35px;
     height: 35px;
